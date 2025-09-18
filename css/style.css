@@ -5,6 +5,23 @@
     box-sizing: border-box;
 }
 
+/* Performance optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Critical CSS for above-the-fold content */
+.hero {
+    contain: layout style paint;
+}
+
+/* Reduce layout shifts */
+.hero-title,
+.hero-description {
+    will-change: transform;
+}
+
 :root {
     --primary-color: #2d5a27;
     --secondary-color: #4a7c59;
@@ -55,7 +72,7 @@ h4 { font-size: 1.5rem; }
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0 0;
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     transition: all 0.3s ease;
